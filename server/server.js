@@ -2,8 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
-const http = require('http'); // Required for Socket.IO
-const socket = require('./socket'); // Custom socket helper
+const http = require('http'); 
+const socket = require('./socket'); 
 const logRoutes = require('./routes/logRoutes');
 
 
@@ -11,7 +11,7 @@ const logRoutes = require('./routes/logRoutes');
 dotenv.config();
 
 const app = express();
-const server = http.createServer(app); // Create HTTP server
+const server = http.createServer(app); 
 
 // Initialize Socket.IO
 const io = socket.init(server);
@@ -23,7 +23,12 @@ io.on('connection', (socket) => {
   });
 });
 
-app.use(cors());
+const cors = require('cors');
+app.use(cors({
+  origin: 'https://real-time-collaborative-to-do-board-weld.vercel.app/register',  
+  credentials: true
+}));
+
 app.use(express.json());
 app.use('/api/logs', logRoutes);
 
