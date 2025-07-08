@@ -66,7 +66,9 @@ const TaskBoard = () => {
 Collaborative To-Do Board</h1>
  <AddTaskForm onTaskCreated={(newTask) => setTasks((prev) => [...prev, newTask])} />
 
+
     <div style={{ display: 'flex' }}>
+      
       <DragDropContext onDragEnd={onDragEnd}>
         <div className="board-container">
           <Column title="Todo" tasks={getTasksByStatus('Todo')} />
