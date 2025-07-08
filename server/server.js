@@ -23,7 +23,7 @@ io.on('connection', (socket) => {
   });
 });
 
-const cors = require('cors');
+
 app.use(cors({
   origin: 'https://real-time-collaborative-to-do-board-weld.vercel.app/register',  
   credentials: true
