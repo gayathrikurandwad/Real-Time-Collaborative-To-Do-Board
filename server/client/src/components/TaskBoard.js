@@ -4,6 +4,10 @@ import axios from 'axios';
 import { DragDropContext } from '@hello-pangea/dnd';
 import socket from '../socket';
 import ActivityLog from './ActivityLog';
+import AddTaskForm from './AddTaskForm';
+
+
+
 
 const TaskBoard = () => {
   const [tasks, setTasks] = useState([]);
@@ -60,6 +64,7 @@ const TaskBoard = () => {
   <div>
     <h1 className="board-heading">📝 Real-Time
 Collaborative To-Do Board</h1>
+ <AddTaskForm onTaskCreated={(newTask) => setTasks((prev) => [...prev, newTask])} />
 
     <div style={{ display: 'flex' }}>
       <DragDropContext onDragEnd={onDragEnd}>
